@@ -1,4 +1,4 @@
-import { Field, InputType, Int } from '@nestjs/graphql';
+import { Field, InputType, Int, PartialType } from '@nestjs/graphql';
 import { Prisma } from '@prisma/client';
 
 @InputType()
@@ -29,4 +29,31 @@ export class GetCustomerInput {
 
   @Field(() => WhereCustomerInput, { nullable: true })
   where: WhereCustomerInput;
+}
+
+@InputType()
+export class CreateCustomerInput {
+  @Field() // You can add validation decorators here, e.g., @IsEmail()
+  email: string;
+
+  @Field()
+  description: string;
+
+  // Ideally we should store it has salted hash, for now it'll be plaintext
+  @Field()
+  password: string
+
+  // You can add more fields as needed for creating a customer
+}
+
+@InputType()
+export class UpdateCustomerInput extends PartialType(CreateCustomerInput) {
+  // Here, you can mark fields as optional that can be updated
+  @Field({ nullable: true })
+  email?: string;
+
+  @Field({ nullable: true })
+  description?: string;
+
+  // Add more fields as needed for updating a customer
 }
