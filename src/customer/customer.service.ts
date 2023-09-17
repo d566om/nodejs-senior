@@ -17,7 +17,6 @@ export class CustomerService {
   }
 
   async createCustomer(data: CreateCustomerInput) {
-    console.log('#####DATA ' + JSON.stringify(data));
     return this.prisma.customer.create({
       data,
     })
