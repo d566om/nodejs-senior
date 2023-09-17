@@ -41,3 +41,9 @@ junit.xml
 
 .env.dev
 .env.test
+package-lock.json
+prisma/migrations/20230917154424_task2/migration.sql
+src/schema.gql
+package-lock.json
+src/schema.gql
+test/src/schema.gql
