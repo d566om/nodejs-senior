@@ -1,6 +1,6 @@
 import { PrismaClient } from '@prisma/client';
 
-import { customers } from './seeds/customers';
+import { customers, users } from './seeds/customers';
 
 const prisma = new PrismaClient();
 
@@ -13,6 +13,15 @@ async function main() {
     });
   }
   console.log(`Created ${customers.length} customers`);
+
+  for (const user of users) {
+    await prisma.user.upsert({
+      where: { id: user.id },
+      update: {},
+      create: user,
+    });
+  }
+  console.log(`Created ${users.length} users`);
 }
 
 main()

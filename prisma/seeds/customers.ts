@@ -12,3 +12,12 @@ export const customers: Prisma.CustomerUpsertArgs['create'][] = [
     password: 'randow-password',
   },
 ];
+
+export const users: Prisma.UserUpsertArgs['create'][] = [
+  {
+    id: "9e391faf-64b2-4d4c-b879-463532920fd3",
+    email: "test@test.com",
+    password: "password",
+    role: 'ADMIN'
+  }
+]
