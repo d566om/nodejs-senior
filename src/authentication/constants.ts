@@ -1,3 +1,6 @@
 export const jwtConstants = {
-    secret: 'Super secret secret, that should never be checked it to version management.',
+    accessTokenSecret: 'Access token secret, that should never be checked it to version management.',
+    accessTokenExpiration: '600s',
+    refreshTokenSecret: 'Refresh token secret, that should never be checked it to version management.',
+    refreshTokenExpiration: '100d'
   };
