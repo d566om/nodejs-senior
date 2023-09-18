@@ -16,6 +16,12 @@ import { UserInput } from './dto/auth.input';
   export class AuthController {
     constructor(private authService: AuthService) {}
   
+    /*
+      {
+        "email": "newcustomer3@example.com",
+        "password": "superpassword"
+      }
+    */
     @HttpCode(HttpStatus.OK)
     @Post('login')
     signIn(@Body() userInfo:UserInput) {
