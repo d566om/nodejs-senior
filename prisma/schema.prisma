@@ -17,6 +17,7 @@ model Customer {
   password  String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  verifiedEmail Boolean @default(false)
 }
 
 enum UserRole {
