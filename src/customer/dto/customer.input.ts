@@ -1,11 +1,13 @@
 import { Field, InputType, Int, PartialType } from '@nestjs/graphql';
 import { Prisma } from '@prisma/client';
+import { IsEmail } from 'class-validator';
 
 @InputType()
 export class WhereCustomerInput {
   @Field(() => String, { nullable: true })
   id?: string;
 
+  @IsEmail()
   @Field(() => String, { nullable: true })
   email?: string;
 
